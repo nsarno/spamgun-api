@@ -28,6 +28,9 @@ group :development, :test do
   gem 'byebug'
 end
 
+# Add some fanciness to minitest
+gem 'minitest-reporters', group: :test
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
