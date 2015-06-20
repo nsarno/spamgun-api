@@ -31,6 +31,12 @@ end
 # Add some fanciness to minitest
 gem 'minitest-reporters', group: :test
 
+# Use resque
+gem 'resque'
+
+# Use Mechanize for scrapping jobs
+gem 'mechanize'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
