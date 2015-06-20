@@ -1,5 +1,5 @@
 class Ad < ActiveRecord::Base
-  enum status: [:processing, :completed]
+  enum status: [:idle, :active, :completed]
 
   validates :uid, uniqueness: { scope: :origin }
 end
