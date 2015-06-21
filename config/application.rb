@@ -25,5 +25,8 @@ module Parrot
 
     # Use resque queuing backend
     # config.active_job.queue_adapter = :resque
+
+    # Use default queuing backend
+    config.active_job.queue_adapter = :inline
   end
 end

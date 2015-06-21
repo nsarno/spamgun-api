@@ -17,19 +17,26 @@ ActiveRecord::Schema.define(version: 20150620191316) do
   enable_extension "plpgsql"
 
   create_table "ads", force: :cascade do |t|
-    t.string   "origin",                 null: false
+    t.integer  "source_id",              null: false
     t.string   "uid",                    null: false
     t.integer  "status",     default: 0, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  add_index "ads", ["origin", "uid"], name: "index_ads_on_origin_and_uid", unique: true, using: :btree
+  add_index "ads", ["source_id", "uid"], name: "index_ads_on_source_id_and_uid", unique: true, using: :btree
+  add_index "ads", ["source_id"], name: "index_ads_on_source_id", using: :btree
 
   create_table "sources", force: :cascade do |t|
-    t.string   "url",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "list_url",                  null: false
+    t.string   "form_url",                  null: false
+    t.string   "form_name",                 null: false
+    t.string   "form_email",                null: false
+    t.string   "form_phone", default: "",   null: false
+    t.text     "form_body",                 null: false
+    t.boolean  "form_cc",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end
