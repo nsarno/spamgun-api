@@ -1,7 +1,7 @@
 class Source < ActiveRecord::Base
   has_many :ads
 
-  validates :url, presence: true
+  validates_presence_of :list_url, :form_url, :form_name, :form_email, :form_body
 
   def scrap max_page=1
     agent = Mechanize.new

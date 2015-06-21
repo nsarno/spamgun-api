@@ -4,7 +4,6 @@ class SpammerJob < ActiveJob::Base
   def perform
     Ad.where(status: 'pending').find_each do |ad|
       ad.reply
-      break
     end
   end
 end

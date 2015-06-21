@@ -54,6 +54,9 @@ class SourcesController < ApplicationController
     end
 
     def source_params
-      params.require(:source).permit(:url, :config)
+      params.require(:source).permit(
+        :list_url, :form_url, :form_name, :form_email,
+        :form_phone, :form_body, :form_cc
+      )
     end
 end

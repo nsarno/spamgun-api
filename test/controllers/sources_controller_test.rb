@@ -13,7 +13,7 @@ class SourcesControllerTest < ActionController::TestCase
 
   test "should create source" do
     assert_difference('Source.count') do
-      post :create, source: { config: @source.config, url: @source.url }
+      post :create, source: @source.attributes
     end
 
     assert_response 201
@@ -25,7 +25,7 @@ class SourcesControllerTest < ActionController::TestCase
   end
 
   test "should update source" do
-    put :update, id: @source, source: { config: @source.config, url: @source.url }
+    put :update, id: @source, source: @source.attributes
     assert_response 204
   end
 

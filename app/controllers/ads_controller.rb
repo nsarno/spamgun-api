@@ -17,35 +17,35 @@ class AdsController < ApplicationController
 
   # POST /ads
   # POST /ads.json
-  def create
-    @ad = Ad.new(ad_params)
+  # def create
+  #   @ad = Ad.new(ad_params)
 
-    if @ad.save
-      render json: @ad, status: :created, location: @ad
-    else
-      render json: @ad.errors, status: :unprocessable_entity
-    end
-  end
+  #   if @ad.save
+  #     render json: @ad, status: :created, location: @ad
+  #   else
+  #     render json: @ad.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # PATCH/PUT /ads/1
   # PATCH/PUT /ads/1.json
-  def update
-    @ad = Ad.find(params[:id])
+  # def update
+  #   @ad = Ad.find(params[:id])
 
-    if @ad.update(ad_params)
-      head :no_content
-    else
-      render json: @ad.errors, status: :unprocessable_entity
-    end
-  end
+  #   if @ad.update(ad_params)
+  #     head :no_content
+  #   else
+  #     render json: @ad.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /ads/1
   # DELETE /ads/1.json
-  def destroy
-    @ad.destroy
+  # def destroy
+  #   @ad.destroy
 
-    head :no_content
-  end
+  #   head :no_content
+  # end
 
   private
 
@@ -54,6 +54,6 @@ class AdsController < ApplicationController
     end
 
     def ad_params
-      params.require(:ad).permit(:origin, :uid)
+      params.require(:ad).permit(:uid)
     end
 end
