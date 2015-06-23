@@ -17,12 +17,12 @@ end
 
 class SpammerJobTest < ActiveJob::TestCase
   test 'ads are being replied to' do
-    ScrapperJob.perform_now # scrap some ads
+    ScrapperJob.perform_now sources(:one)# scrap some ads
 
     pending_ads = Ad.where(status: Ad.statuses[:pending]).count
     completed_ads = Ad.where(status: Ad.statuses[:completed]).count
 
-    SpammerJob.perform_now
+    SpammerJob.perform_now sources(:one)
 
     assert Ad.where(status: Ad.statuses[:pending]).count < pending_ads
     assert Ad.where(status: Ad.statuses[:completed]).count > completed_ads
