@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+scrapper:
+  name: scrapper
+  status: 0
+  source: one
+
+spammer:
+  name: spammer
+  status: 0
+  source: one

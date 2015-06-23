@@ -1,5 +1,6 @@
 class Source < ActiveRecord::Base
-  has_many :ads
+  has_many :ads, dependent: :destroy
+  has_many :jobs, dependent: :destroy
 
   validates_presence_of :list_url, :form_url, :form_name, :form_email, :form_body
 

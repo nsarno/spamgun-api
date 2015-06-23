@@ -16,14 +16,28 @@ class Ad
 end
 
 class SpammerJobTest < ActiveJob::TestCase
-  test 'ads are being replied to' do
-    ScrapperJob.perform_now sources(:one)# scrap some ads
+  test 'record status is updated' do
+    record = jobs(:spammer)
 
+    assert record.pending?
+    SpammerJob.perform_now record
+    assert record.completed?
+  end
+
+  test 'ads are being replied to' do
+    skip 'skipping scrapping: too slow'
+
+    ScrapperJob.perform_now jobs(:scrapper) # scrap some ads
+
+    record = jobs(:spammer)
+
+    assert record.pending?
     pending_ads = Ad.where(status: Ad.statuses[:pending]).count
     completed_ads = Ad.where(status: Ad.statuses[:completed]).count
 
-    SpammerJob.perform_now sources(:one)
+    SpammerJob.perform_now record
 
+    assert record.completed?
     assert Ad.where(status: Ad.statuses[:pending]).count < pending_ads
     assert Ad.where(status: Ad.statuses[:completed]).count > completed_ads
   end
