@@ -32,7 +32,7 @@ class SourcesController < ApplicationController
   def update
     @source = Source.find(params[:id])
 
-    if @source.update(source_params)
+    if @source.update(source_params_update)
       head :no_content
     else
       render json: @source.errors, status: :unprocessable_entity
@@ -56,6 +56,13 @@ class SourcesController < ApplicationController
     def source_params
       params.require(:source).permit(
         :list_url, :form_url, :form_name, :form_email,
+        :form_phone, :form_body, :form_cc
+      )
+    end
+
+    def source_params_update
+      params.require(:source).permit(
+        :form_url, :form_name, :form_email,
         :form_phone, :form_body, :form_cc
       )
     end

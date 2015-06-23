@@ -1,3 +1,3 @@
 class AdSerializer < ActiveModel::Serializer
-  attributes :id, :source, :uid, :status
+  attributes :id, :uid, :status
 end

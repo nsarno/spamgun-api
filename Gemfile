@@ -33,6 +33,7 @@ gem 'minitest-reporters', group: :test
 
 # Use resque
 gem 'resque'
+gem 'resque-scheduler'
 
 # Use Mechanize for scrapping jobs
 gem 'mechanize'

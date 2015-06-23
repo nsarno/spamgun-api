@@ -11,6 +11,6 @@ class Job < ActiveRecord::Base
   }
 
   def run
-    JOB_TYPES[self.name].constantize.perform_later self, 0
+    JOB_TYPES[self.name].constantize.perform_later self, 1
   end
 end

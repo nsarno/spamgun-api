@@ -8,7 +8,7 @@ class Source < ActiveRecord::Base
     agent = Mechanize.new
     page = Page.new agent.get(self.list_url)
     begin
-      self.ads.create(page.ads) 
+      self.ads.create(page.ads)
     end while (page.next! && (page.no <= max_page || max_page.zero?))
   end
 end
