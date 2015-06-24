@@ -23,10 +23,7 @@ module Parrot
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    # Use resque queuing backend
-    # config.active_job.queue_adapter = :resque
-
-    # Use default queuing backend
-    config.active_job.queue_adapter = :inline
+    # Use delayed_job queuing backend
+    config.active_job.queue_adapter = :delayed_job
   end
 end
