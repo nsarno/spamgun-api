@@ -11,4 +11,12 @@ class Source < ActiveRecord::Base
       self.ads.create(page.ads)
     end while (page.next! && (page.no <= max_page || max_page.zero?))
   end
+
+  def pending_count
+    self.ads.where(status: Ad.statuses[:pending]).count
+  end
+
+  def replied_count
+    self.ads.where(status: Ad.statuses[:completed]).count
+  end
 end

@@ -32,6 +32,7 @@ end
 gem 'minitest-reporters', group: :test
 
 # Use Delayed Job as ActiveJob backend
+gem 'daemons'
 gem 'delayed_job_active_record'
 
 # Use Mechanize for scrapping jobs
