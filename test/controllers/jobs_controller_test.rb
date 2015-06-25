@@ -6,9 +6,8 @@ class JobsControllerTest < ActionController::TestCase
   end
 
   test "should create job" do
-    assert_difference('Job.count') do
-      post :create, job: { status: @job.status, name: @job.name, source_id: @job.source_id }
-    end
+    # Don't assert difference, creating a job clean up the previous ones
+    post :create, job: { status: @job.status, name: @job.name, source_id: @job.source_id }
 
     assert_response 201
   end
