@@ -19,4 +19,24 @@ class Source < ActiveRecord::Base
   def replied_count
     self.ads.where(status: Ad.statuses[:completed]).count
   end
+
+  def scrapping?
+    self.jobs.where(name: 'scrapper', status: Job.statuses[:running]).any?
+  end
+
+  def spamming?
+    self.jobs.where(name: 'spammer', status: Job.statuses[:running]).any?
+  end
+
+  def scrap_pending?
+    self.jobs.where(name: 'scrapper', status: Job.statuses[:pending]).any?
+  end
+
+  def spam_pending?
+    self.jobs.where(name: 'spammer', status: Job.statuses[:pending]).any?
+  end
+
+  def processing?
+    scrapping? || spamming? || scrap_pending? || spam_pending?
+  end
 end
