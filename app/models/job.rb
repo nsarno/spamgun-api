@@ -5,12 +5,12 @@ class Job < ActiveRecord::Base
 
   after_create :run
 
-  JOB_TYPES = { 
+  JOB_TYPES = {
     'scrapper'  => 'ScrapperJob',
     'spammer'   => 'SpammerJob'
   }
 
   def run
-    JOB_TYPES[self.name].constantize.perform_later self, 1
+    JOB_TYPES[self.name].constantize.perform_later self
   end
 end
