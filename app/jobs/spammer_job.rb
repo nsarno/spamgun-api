@@ -9,7 +9,7 @@ class SpammerJob < ActiveJob::Base
   end
 
   def perform record
-    record.source.ads.where(status: 'pending').find_each do |ad|
+    record.source.ads.where(status: Ad.statuses[:pending]).find_each do |ad|
       ad.reply
     end
   end
