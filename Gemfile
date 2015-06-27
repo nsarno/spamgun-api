@@ -18,7 +18,7 @@ gem 'active_model_serializers', '~> 0.10.0.rc1'
 gem 'rack-cors'
 
 # Use JWT tokens for stateless authentication
-# gem 'jwt'
+gem 'jwt'
 
 # Use Heroku in production
 gem 'rails_12factor', group: :production
@@ -39,7 +39,7 @@ gem 'delayed_job_active_record'
 gem 'mechanize'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Deploy with Capistrano
 # gem 'capistrano', :group => :development

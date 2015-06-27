@@ -1,4 +1,11 @@
 require 'test_helper'
+require 'application_controller'
+
+class ApplicationController
+  def authenticate
+    true
+  end
+end
 
 class SourcesControllerTest < ActionController::TestCase
   setup do

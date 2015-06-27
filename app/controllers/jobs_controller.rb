@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :authenticate
   before_action :set_job, only: [:show]
   before_action :set_source, only: [:create]
 
