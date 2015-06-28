@@ -1,5 +1,6 @@
 class SourceSerializer < ActiveModel::Serializer
   attributes  :id, :list_url, :form_url, :form_name, :form_email, :form_phone, :form_body, :form_cc,
+              :page_param, :page_start, :page_max,
               :pending_count, :replied_count, :scrapping, :spamming, :scrap_pending, :spam_pending,
               :processing
 

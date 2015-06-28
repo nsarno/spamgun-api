@@ -1,15 +1,27 @@
+require 'uri'
+
+class URI::HTTP
+  def with_param param_name, param_value
+    params = URI.decode_www_form(self.query || []) << [param_name, param_value]
+    self.query = URI.encode_www_form(params)
+    self
+  end
+end
+
 class Source < ActiveRecord::Base
   has_many :ads, dependent: :destroy
   has_many :jobs, dependent: :destroy
 
   validates_presence_of :list_url, :form_url, :form_name, :form_email, :form_body
 
-  def scrap max_page=1
+  def scrap
     agent = Mechanize.new
-    page = Page.new agent.get(self.list_url)
+    start_url = URI(self.list_url).with_param(self.page_param, self.page_start).to_s
+    pp start_url
+    page = Page.new agent.get(start_url), self.page_start
     begin
       self.ads.create(page.ads)
-    end while (page.next! && (page.no <= max_page || max_page.zero?))
+    end while (page.next! && (page.no <= self.page_max || self.page_max.zero?))
   end
 
   def pending_count

@@ -8,7 +8,7 @@ class ScrapperJob < ActiveJob::Base
     record.completed!
   end
 
-  def perform record, max_page=1
-    record.source.scrap max_page
+  def perform record
+    record.source.scrap
   end
 end

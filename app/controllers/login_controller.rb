@@ -2,7 +2,6 @@ class LoginController < ApplicationController
   before_filter :set_user, only: [:create]
 
   def create
-    pp @user.to_json
     render json: { jwt: AuthToken.issue_token({ user_id: @user.id }) }, status: :created
   end
 
