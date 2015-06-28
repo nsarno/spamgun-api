@@ -5,7 +5,7 @@
 
  Rails.application.config.middleware.insert_before 0, "Rack::Cors" do
    allow do
-     origins 'localhost:3001', 'localhost:3000', 'https://parrotdash.firebaseapp.com'
+     origins 'localhost:3001', 'localhost:3000', 'https://spamgun.firebaseapp.com'
 
      resource '*',
        headers: :any,
