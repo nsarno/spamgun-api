@@ -18,6 +18,7 @@ class Ad < ActiveRecord::Base
     agent = Mechanize.new
     reply_form = agent.get("#{self.source.form_url}?id=#{uid}").try(:form_with, id: FORM_ID)
     if reply_form.present?
+      reply_form.encoding = 'UTF-8'
       reply_form['name'] = self.source.form_name
       reply_form['email'] = self.source.form_email
       reply_form['phone'] = self.source.form_phone

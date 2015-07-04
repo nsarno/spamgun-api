@@ -8,3 +8,12 @@ one:
   form_phone: ''
   form_body: 'This is an automatic message. You can ignore it.'
   form_cc: true
+
+two:
+  list_url: 'http://www.leboncoin.fr/voitures/offres/ile_de_france/?rs=2008&me=100000&f=p'
+  form_url: 'http://www2.leboncoin.fr/ar/form/0'
+  form_name: 'James Kilroy'
+  form_email: '1ifn7c+ethx0ci0cgsjg@sharklasers.com'
+  form_phone: ''
+  form_body: '()è€’ééàèéé'
+  form_cc: true

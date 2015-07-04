@@ -17,7 +17,6 @@ class Source < ActiveRecord::Base
   def scrap
     agent = Mechanize.new
     start_url = URI(self.list_url).with_param(self.page_param, self.page_start).to_s
-    pp start_url
     page = Page.new agent.get(start_url), self.page_start
     begin
       self.ads.create(page.ads)
