@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class SourceTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'validates presence of attributes' do
+    s = Source.new
+    assert_not s.valid?
+  end
 end

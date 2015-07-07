@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628064409) do
+ActiveRecord::Schema.define(version: 20150707151834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ads", force: :cascade do |t|
-    t.integer  "source_id",              null: false
-    t.string   "uid",                    null: false
-    t.integer  "status",     default: 0, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "source_id",               null: false
+    t.string   "uid",                     null: false
+    t.integer  "status",     default: 0,  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "hostname",   default: "", null: false
   end
 
-  add_index "ads", ["source_id", "uid"], name: "index_ads_on_source_id_and_uid", unique: true, using: :btree
+  add_index "ads", ["hostname", "uid"], name: "index_ads_on_hostname_and_uid", unique: true, using: :btree
   add_index "ads", ["source_id"], name: "index_ads_on_source_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150628064409) do
     t.string   "page_param", default: "o",  null: false
     t.integer  "page_start", default: 1,    null: false
     t.integer  "page_max",   default: 1,    null: false
+    t.string   "title",      default: "",   null: false
   end
 
   create_table "users", force: :cascade do |t|

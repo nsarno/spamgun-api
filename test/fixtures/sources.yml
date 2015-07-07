@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  title: 'Annonces particuliers +2008 -100000km'
   list_url: 'http://www.leboncoin.fr/voitures/offres/ile_de_france/?rs=2008&me=100000&f=p'
   form_url: 'http://www2.leboncoin.fr/ar/form/0'
   form_name: 'James Kilroy'
@@ -10,6 +11,7 @@ one:
   form_cc: true
 
 two:
+  title: 'Special Characters'
   list_url: 'http://www.leboncoin.fr/voitures/offres/ile_de_france/?rs=2008&me=100000&f=p'
   form_url: 'http://www2.leboncoin.fr/ar/form/0'
   form_name: 'James Kilroy'

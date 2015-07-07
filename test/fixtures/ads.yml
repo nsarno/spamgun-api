@@ -2,10 +2,12 @@
 
 one:
   source: one
+  hostname: 'www.leboncoin.fr'
   uid: 1
   status: 0
 
 two:
   source: one
+  hostname: 'www.leboncoin.fr'
   uid: 2
   status: 0

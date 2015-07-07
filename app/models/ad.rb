@@ -3,15 +3,22 @@ class Ad < ActiveRecord::Base
 
   belongs_to :source
 
-  validates :uid, uniqueness: { scope: :source }
+  validates :uid, uniqueness: { scope: :hostname }
+
+  before_save :set_hostname
 
   FORM_ID = 'reply_form'
 
   def self.build_with_uri uri
     Ad.new({
       uid: uri.path.split('/').last.split('.').first,
+      hostname: uri.hostname,
       status: :pending
     })
+  end
+
+  def set_hostname
+    self.hostname = self.source.hostname
   end
 
   def reply

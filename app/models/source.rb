@@ -12,7 +12,7 @@ class Source < ActiveRecord::Base
   has_many :ads, dependent: :destroy
   has_many :jobs, dependent: :destroy
 
-  validates_presence_of :list_url, :form_url, :form_name, :form_email, :form_body
+  validates_presence_of :title, :list_url, :form_url, :form_name, :form_email, :form_body
 
   def scrap
     agent = Mechanize.new
@@ -21,6 +21,10 @@ class Source < ActiveRecord::Base
     begin
       self.ads.create(page.ads)
     end while (page.next! && (page.no <= self.page_max || self.page_max.zero?))
+  end
+
+  def hostname
+    URI(self.list_url).hostname
   end
 
   def pending_count
