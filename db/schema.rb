@@ -55,20 +55,20 @@ ActiveRecord::Schema.define(version: 20150707152751) do
   add_index "jobs", ["source_id"], name: "index_jobs_on_source_id", using: :btree
 
   create_table "sources", force: :cascade do |t|
-    t.string   "list_url",                  null: false
-    t.string   "form_url",                  null: false
-    t.string   "form_name",                 null: false
-    t.string   "form_email",                null: false
-    t.string   "form_phone", default: "",   null: false
-    t.text     "form_body",                 null: false
+    t.string   "list_url",                        null: false
+    t.string   "form_url",                        null: false
+    t.string   "form_name",                       null: false
+    t.string   "form_email",                      null: false
+    t.string   "form_phone", default: "",         null: false
+    t.text     "form_body",                       null: false
     t.boolean  "form_cc",    default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "page_param", default: "o",  null: false
-    t.integer  "page_start", default: 1,    null: false
-    t.integer  "page_max",   default: 1,    null: false
-    t.string   "title",      default: "",   null: false
-    t.integer  "spam_max",   default: 0,    null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "page_param", default: "o",        null: false
+    t.integer  "page_start", default: 1,          null: false
+    t.integer  "page_max",   default: 1,          null: false
+    t.string   "title",      default: "No title", null: false
+    t.integer  "spam_max",   default: 0,          null: false
   end
 
   create_table "users", force: :cascade do |t|
