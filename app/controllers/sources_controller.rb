@@ -56,16 +56,21 @@ class SourcesController < ApplicationController
 
     def source_params
       params.require(:source).permit(
+        :title,
         :list_url, :form_url, :form_name, :form_email,
-        :form_phone, :form_body, :form_cc
+        :form_phone, :form_body, :form_cc,
+        :page_param, :page_start, :page_max,
+        :spam_max
       )
     end
 
     def source_params_update
       params.require(:source).permit(
+        :title,
         :form_url, :form_name, :form_email,
         :form_phone, :form_body, :form_cc,
-        :page_param, :page_start, :page_max
+        :page_param, :page_start, :page_max,
+        :spam_max
       )
     end
 end

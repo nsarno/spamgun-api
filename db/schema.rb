@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707151834) do
+ActiveRecord::Schema.define(version: 20150707152751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150707151834) do
     t.integer  "page_start", default: 1,    null: false
     t.integer  "page_max",   default: 1,    null: false
     t.string   "title",      default: "",   null: false
+    t.integer  "spam_max",   default: 0,    null: false
   end
 
   create_table "users", force: :cascade do |t|

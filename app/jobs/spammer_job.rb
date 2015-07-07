@@ -9,8 +9,10 @@ class SpammerJob < ActiveJob::Base
   end
 
   def perform record
-    record.source.ads.where(status: Ad.statuses[:pending]).find_each do |ad|
+    max_index = record.source.spam_max
+    record.source.ads.where(status: Ad.statuses[:pending]).each_with_index do |ad, index|
       ad.reply
+      break unless (max_index == 0  || index < max_index)
     end
   end
 end

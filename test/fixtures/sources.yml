@@ -9,6 +9,7 @@ one:
   form_phone: ''
   form_body: 'This is an automatic message. You can ignore it.'
   form_cc: true
+  spam_max: 50
 
 two:
   title: 'Special Characters'
@@ -19,3 +20,4 @@ two:
   form_phone: ''
   form_body: '()è€’ééàèéé'
   form_cc: true
+  spam_max: 50
