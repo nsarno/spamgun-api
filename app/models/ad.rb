@@ -3,7 +3,8 @@ class Ad < ActiveRecord::Base
 
   belongs_to :source
 
-  validates :uid, uniqueness: { scope: :hostname }
+  validates :uid, uniqueness: { scope: :hostname }, presence: true
+  validates :source_id, presence: true
 
   before_save :set_hostname
 
