@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.3'
 gem 'rails-api'
 
 gem 'spring', :group => :development
@@ -18,7 +18,9 @@ gem 'active_model_serializers', '~> 0.10.0.rc1'
 gem 'rack-cors'
 
 # Use JWT tokens for stateless authentication
-gem 'jwt'
+# gem 'jwt'
+
+gem 'knock', '~> 1.0.0.rc1'
 
 # Use Heroku in production
 gem 'rails_12factor', group: :production
