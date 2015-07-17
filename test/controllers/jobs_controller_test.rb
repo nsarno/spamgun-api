@@ -5,8 +5,8 @@ class JobsControllerTest < ActionController::TestCase
     @job = jobs(:scrapper)
   end
 
-  test "should create job" do
+  test "reponds with created status" do
     post :create, job: { status: @job.status, name: @job.name, source_id: @job.source_id }
-    assert_response 201
+    assert_response :created
   end
 end

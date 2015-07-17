@@ -41,6 +41,8 @@ gem 'mechanize'
 # To use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem "codeclimate-test-reporter", group: :test, require: nil
+
 # Deploy with Capistrano
 # gem 'capistrano', :group => :development
 
