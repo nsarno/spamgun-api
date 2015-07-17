@@ -61,7 +61,7 @@ GEM
     i18n (0.7.0)
     json (1.8.3)
     jwt (1.5.1)
-    knock (1.0.0.rc1)
+    knock (1.2.0)
       bcrypt (~> 3.1)
       jwt (~> 1.5)
       rails (~> 4.2)
@@ -81,7 +81,7 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
-    minitest-reporters (1.0.18)
+    minitest-reporters (1.0.19)
       ansi
       builder
       minitest (>= 5.0)
@@ -92,8 +92,7 @@ GEM
       mini_portile (~> 0.6.0)
     ntlm-http (0.1.1)
     pg (0.18.2)
-    puma (2.11.3)
-      rack (>= 1.1, < 2.0)
+    puma (2.12.2)
     rack (1.6.4)
     rack-cors (0.4.0)
     rack-test (0.6.3)
@@ -157,7 +156,7 @@ DEPENDENCIES
   byebug
   daemons
   delayed_job_active_record
-  knock (~> 1.0.0.rc1)
+  knock (~> 1.2)
   mechanize
   minitest-reporters
   pg

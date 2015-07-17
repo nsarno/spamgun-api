@@ -17,10 +17,8 @@ gem 'active_model_serializers', '~> 0.10.0.rc1'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-# Use JWT tokens for stateless authentication
-# gem 'jwt'
-
-gem 'knock', '~> 1.0.0.rc1'
+# Seamless JWT authentication for Rails API
+gem 'knock', '~> 1.2'
 
 # Use Heroku in production
 gem 'rails_12factor', group: :production
