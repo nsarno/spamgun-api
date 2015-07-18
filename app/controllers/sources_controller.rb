@@ -1,76 +1,48 @@
 class SourcesController < ApplicationController
   before_action :authenticate
-  before_action :set_source, only: [:show, :update, :destroy]
 
-  # GET /sources
-  # GET /sources.json
   def index
-    @sources = Source.all
-
-    render json: @sources
+    render json: Source.all
   end
 
-  # GET /sources/1
-  # GET /sources/1.json
   def show
-    render json: @source
+    render json: source
   end
 
-  # POST /sources
-  # POST /sources.json
   def create
-    @source = Source.new(source_params)
-
-    if @source.save
-      render json: @source, status: :created, location: @source
-    else
-      render json: @source.errors, status: :unprocessable_entity
-    end
+    save_and_render Source.new(source_params), status: :created
   end
 
-  # PATCH/PUT /sources/1
-  # PATCH/PUT /sources/1.json
   def update
-    @source = Source.find(params[:id])
-
-    if @source.update(source_params_update)
-      head :no_content
-    else
-      render json: @source.errors, status: :unprocessable_entity
-    end
+    save_and_render source, source_params_update
   end
 
-  # DELETE /sources/1
-  # DELETE /sources/1.json
   def destroy
-    @source.destroy
-
+    source.destroy
     head :no_content
   end
 
-  private
+private
+  def source
+    @source ||= Source.find params[:id]
+  end
 
-    def set_source
-      @source = Source.find(params[:id])
-    end
+  def update_permitted_params
+    [
+      :title, :form_url, :form_name, :form_email, :form_phone, :form_body,
+      :form_cc, :page_param, :page_start, :page_max, :spam_max
+    ]
+  end
 
-    def source_params
-      params.require(:source).permit(
-        :title,
-        :list_url, :form_url, :form_name, :form_email,
-        :form_phone, :form_body, :form_cc,
-        :page_param, :page_start, :page_max,
-        :spam_max
-      )
-    end
+  def create_permitted_params
+    update_permitted_params + [:list_url]
+  end
 
-    def source_params_update
-      params.require(:source).permit(
-        :title,
-        :form_url, :form_name, :form_email,
-        :form_phone, :form_body, :form_cc,
-        :page_param, :page_start, :page_max,
-        :spam_max
-      )
-    end
+  def source_params
+    params.require(:source).permit create_permitted_params
+  end
+
+  def source_params_update
+    params.require(:source).permit update_permitted_params
+  end
 end

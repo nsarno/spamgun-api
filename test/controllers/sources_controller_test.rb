@@ -15,7 +15,6 @@ class SourcesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:sources)
   end
 
   test "should create source" do
@@ -32,8 +31,8 @@ class SourcesControllerTest < ActionController::TestCase
   end
 
   test "should update source" do
-    put :update, id: @source, source: @source.attributes
-    assert_response 204
+    put :update, id: @source, source: { title: 'Updated title' }
+    assert_response 200
   end
 
   test "should destroy source" do
