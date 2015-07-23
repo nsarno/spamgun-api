@@ -1,14 +1,14 @@
 require 'test_helper'
-require 'application_controller'
-
-class ApplicationController
-  def authenticate
-    true
-  end
-end
 
 class SourcesControllerTest < ActionController::TestCase
+
+  def authenticate
+    token = Knock::AuthToken.new(payload: { sub: users(:one).id }).token
+    request.env['HTTP_AUTHORIZATION'] = "bearer #{token}"
+  end
+
   setup do
+    authenticate
     @source = sources(:one)
   end
 
@@ -22,7 +22,7 @@ class SourcesControllerTest < ActionController::TestCase
       post :create, source: @source.attributes
     end
 
-    assert_response 201
+    assert_response :created
   end
 
   test "should show source" do
@@ -32,7 +32,7 @@ class SourcesControllerTest < ActionController::TestCase
 
   test "should update source" do
     put :update, id: @source, source: { title: 'Updated title' }
-    assert_response 200
+    assert_response :success
   end
 
   test "should destroy source" do
@@ -40,6 +40,6 @@ class SourcesControllerTest < ActionController::TestCase
       delete :destroy, id: @source
     end
 
-    assert_response 204
+    assert_response :no_content
   end
 end

@@ -18,7 +18,7 @@ gem 'active_model_serializers', '~> 0.10.0.rc1'
 gem 'rack-cors'
 
 # Seamless JWT authentication for Rails API
-gem 'knock', '~> 1.2'
+gem 'knock', github: 'nsarno/knock', branch: 'master'
 
 # Use Heroku in production
 gem 'rails_12factor', group: :production
